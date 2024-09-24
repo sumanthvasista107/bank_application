@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register User</title>
+</head>
+<body>
+    <h2>Register a New User</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="id_username">Username:</label><br>
+        {{ form.username }}<br><br>
+
+        <label for="id_email">Email:</label><br>
+        {{ form.email }}<br><br>
+
+        <label for="id_password">Password:</label><br>
+        {{ form.password }}<br><br>
+
+        <label for="id_balance">Initial Balance:</label><br>
+        {{ form.balance }}<br><br>
+
+        <button type="submit">Register User</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>User Home</title>
+    </head>
+    <body>
+
+        <h2>Welcome, {{ request.user.username }}</h2>
+        <p>Your Total Balance: ${{ total_balance }}</p>
+
+        <h3>Recent Transactions</h3>
+        <table>
+        <!-- Table to display recent transactions as mentioned earlier -->
+        </table>
+
+        <!-- Add button to navigate to the fund transfer page -->
+        <a href="{% url 'transfer' %}">
+        <button>Transfer Funds</button>
+        </a>
+
+    </body>
+    </html>
