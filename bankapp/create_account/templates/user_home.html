@@ -1,22 +1,107 @@
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <title>User Home</title>
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-        <h2>Welcome, {{ request.user.username }}</h2>
-        <p>Your Total Balance: ${{ total_balance }}</p>
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-        <h3>Recent Transactions</h3>
-        <table>
-        <!-- Table to display recent transactions as mentioned earlier -->
-        </table>
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
 
-        <!-- Add button to navigate to the fund transfer page -->
-        <a href="{% url 'transfer' %}">
+        h3 {
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            text-decoration: none; /* Remove underline from link */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Welcome, {{ request.user.username }}</h2>
+    <p>Your Total Balance: ${{ total_balance }}</p>
+
+    <h3>Recent Transactions</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Transaction Type</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows for recent transactions should go here -->
+        </tbody>
+    </table>
+
+    <!-- Add button to navigate to the fund transfer page -->
+    <a href="{% url 'transfer' %}">
         <button>Transfer Funds</button>
-        </a>
+    </a>
 
-    </body>
-    </html>
+</body>
+</html>
