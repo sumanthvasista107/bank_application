@@ -26,22 +26,16 @@ Prerequisites
 Installation
 
     Clone the repository:
-
-    bash
-
-git clone https://github.com/yourusername/django-banking-app.git
-cd django-banking-app
+    git clone https://github.com/yourusername/django-banking-app.git
+    cd django-banking-app
 
 Create a virtual environment and activate it:
 
-bash
 
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+_python -m venv venv
+source venv/bin/activate  # On Windows use `venv\Scripts\activate`_
 
 Install dependencies:
-
-bash
 
 pip install -r requirements.txt
 
@@ -74,3 +68,10 @@ Run the development server:
 bash
 
 python manage.py runserver
+
+please use
+
+http://127.0.0.1:8000/login/ to login to the system
+
+superadmin username: admin
+password: admin
