@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from .models import AdminProfile, Transaction
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
-from .forms import AdminRegisterProfile, AddFundsForm, WithdrawFundsForm, TransferFundsForm
+from .forms import AdminRegisterProfile
 from django.contrib.auth.decorators import user_passes_test
 
 def register_user(request):
@@ -13,7 +13,7 @@ def register_user(request):
         if form.is_valid():
             form.save()  # Save user and profile
             print("apple")
-            return redirect('admin_dashboard')  # Redirect to the dashboard after success
+            return redirect('admin_dashboard')  
     else:
         form = AdminRegisterProfile()
 
@@ -35,19 +35,19 @@ def user_login(request):
             login(request, user)
             # Check if the user is a superuser
             if user.is_superuser:
-                return redirect('admin_dashboard')  # Redirect to the admin dashboard
+                return redirect('admin_dashboard')  
             else:
-                return redirect('user_home')  # Redirect to the user home page for regular users
+                return redirect('user_home')  
         else:
             messages.error(request, "Invalid username or password")
 
-    return render(request, 'login.html')  # Render the login page
+    return render(request, 'login.html') 
 
 @login_required
 def user_home(request):
     # Fetch the user's profile
     admin_profile = AdminProfile.objects.get(user=request.user)
-    total_balance = admin_profile.balance  # Get the balance
+    total_balance = admin_profile.balance  
     return render(request, 'user_home.html', {'total_balance': total_balance})
 
 
@@ -86,6 +86,6 @@ def transfer_funds(request):
         except User.DoesNotExist:
             messages.error(request, "Recipient not found.")
 
-    sender_profile = AdminProfile.objects.get(user=request.user)  # Get the latest balance
+    sender_profile = AdminProfile.objects.get(user=request.user)  
     return render(request, 'transfer.html', {'balance': sender_profile.balance})
 

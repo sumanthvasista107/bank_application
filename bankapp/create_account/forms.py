@@ -13,13 +13,13 @@ class AdminRegisterProfile(forms.ModelForm):
         fields = ['username', 'email', 'password', 'balance']
 
     def save(self, commit=True):
-        # First, create the user
+        #create the user
         user = User.objects.create_user(
             username=self.cleaned_data['username'],
             email=self.cleaned_data['email'],
             password=self.cleaned_data['password']
         )
-        # Then create the profile with the balance
+        #create the profile with the balance
         profile = AdminProfile(user=user, balance=self.cleaned_data['balance'])
         if commit:
             profile.save()

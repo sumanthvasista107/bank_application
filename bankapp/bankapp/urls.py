@@ -25,7 +25,5 @@ urlpatterns = [
     path('login/', views.user_login, name='login'),
     path('user_home/', views.user_home, name='user_home'),
     path('transfer/', views.transfer_funds, name='transfer'),
-    path('accounts/', include('django.contrib.auth.urls')),    
-    #path('reg/', views.admin_dashboard, name='dashborad'),
-    #path('transfers/', views.user_transfer, name='transfer'),
+    path('accounts/', include('django.contrib.auth.urls')),   
 ]
